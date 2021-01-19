@@ -4,6 +4,7 @@ import axios from "axios";
 import Cart from "./components/Cart.jsx";
 import Items from "./components/Items.jsx";
 import ItemDetail from "./components/ItemDetail.jsx";
+import Admin from "./components/Admin.jsx"
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -26,6 +27,10 @@ export default function App() {
     });
   };
 
+  const setNewItem = () =>{
+    getItems();
+  }
+
   const selectedItem = items[selectedItemIndex];
 
   return (
@@ -38,8 +43,10 @@ export default function App() {
             Get Items
           </button>
         )}
+        <Admin setNewItem={setNewItem}/>
         <ItemDetail item={selectedItem} addToCart={addToCart} />
         <Cart items={cart} />
+
       </div>
     </div>
   );

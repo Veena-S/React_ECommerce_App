@@ -6,6 +6,7 @@ import initItemsController from './controllers/items.mjs';
 export default function routes(app) {
   const ItemsController = initItemsController(db);
   app.get('/items', ItemsController.index);
+  app.post('/addItem', ItemsController.addItem);
 
   // special JS page. Include the webpack index.html file
   app.get('/home', (request, response) => {
